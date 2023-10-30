@@ -6,7 +6,7 @@ import interfaces.Observer;
 public class StatisticsDisplay implements Observer, DisplayElement {
     private float maxTemp = 0.0f;
 	private float minTemp = 200;
-	private float tempSum= 0.0f;
+	private float tempSum = 0.0f;
 	private int numReadings;
 	private WeatherData weatherData;
 
@@ -15,7 +15,8 @@ public class StatisticsDisplay implements Observer, DisplayElement {
 		this.weatherData.registerObserver(this);
 	}
 
-	public void update(float temp, float humidity, float pressure) {
+	public void update() {
+		float temp = weatherData.getTemperature();
 		this.tempSum += temp;
 		this.numReadings++;
 
